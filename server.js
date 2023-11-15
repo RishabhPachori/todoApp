@@ -10,7 +10,7 @@ const server = createServer(app);
 
 // Event listeners to catch uncaught errors
 process.on('unhandledRejection', error => {
-    log(LOG_LEVELS.ERROR, error.message, { time: new Date() });
+    // log(LOG_LEVELS.ERROR, error.message, { time: new Date() });
     process.exit(1);
 });
 

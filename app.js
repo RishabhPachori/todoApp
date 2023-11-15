@@ -51,9 +51,9 @@ app.post('/todos/create', authenticateRequest, async (request, response) => {
     
     const { title, description } = requestBody;
 
-    await Todo.create({ title, description, createdAt: new Date() })
+        await Todo.create({ title, description, createdAt: new Date() })
 
-    response.status(200).json({ isSuccess: true, data: allTodos[0], message: 'Successfully saved todo details.' })
+    response.status(200).json({ isSuccess: true, message: 'Successfully saved todo details.' })
 })
 
 app.put('/todos/update', authenticateRequest, async (request, response) => {
@@ -71,9 +71,9 @@ app.put('/todos/update', authenticateRequest, async (request, response) => {
     }
     
 
-    await Todo.updateOne({ _id: todoId }, { $set: updateObject })
+    await Todo.updateOne({ _id: todoId }, { $set: updateObj })
 
-    response.status(200).json({ isSuccess: true, data: allTodos[0], message: 'Successfully updated todo details.' })
+    response.status(200).json({ isSuccess: true, message: 'Successfully updated todo details.' })
 })
 
 app.use(function (req, res, next) {
